@@ -1,4 +1,3 @@
-// 테스트 1, 2, 6, 7 실패
 function solution(numbers, k) {
   var answer = 0;
   let idx = 0;
