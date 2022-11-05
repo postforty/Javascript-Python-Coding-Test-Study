@@ -7,7 +7,6 @@ function solution(a, b) {
   };
   let gcd = gcdMachine(a, b);
 
-  // 기약분수 구하기
   b = b / gcd;
   while (b % 5 === 0 || b % 2 === 0) {
     if (b % 5 === 0) {

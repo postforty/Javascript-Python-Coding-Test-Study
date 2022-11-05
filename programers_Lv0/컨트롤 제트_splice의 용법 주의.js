@@ -2,9 +2,8 @@ function solution(s) {
   var answer = 0;
   s = s.split(" ");
   while (s.includes("Z")) {
-    s.splice(s.indexOf("Z") - 1, 2);
+    s.splice(s.indexOf("Z") - 1, 2); // splice의 용법 주의
   }
-  console.log(s);
   answer = s.reduce((a, b) => a + Number(b), 0);
   return answer;
 }
