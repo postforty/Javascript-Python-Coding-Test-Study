@@ -1,17 +1,11 @@
-function solution(quiz) {
-  var answer = [];
-  let rst = "";
-
-  for (let i of quiz) {
-    let [a, b] = i.split(" = ");
-    let rstA = eval(a);
-    rst += parseInt(rstA) === parseInt(b) ? "O" : "X";
-    answer = [...rst];
+function solution(common) {
+  var answer = 0;
+  if (common[1] / common[0] === common[2] / common[1]) {
+    answer = (common[1] / common[0]) * common.pop();
   }
-
+  if (common[1] - common[0] === common[2] - common[1]) {
+    answer = common[1] - common[0] + common.pop();
+  }
   return answer;
 }
-
-console.log(
-  solution(["19 - 6 = 13", "5 + 66 = 71", "5 - 15 = 63", "3 - 1 = 2"])
-);
+console.log(solution([1, 2, 3, 4]));
