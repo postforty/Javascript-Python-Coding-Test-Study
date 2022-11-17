@@ -16,6 +16,8 @@
 //     return answer;
 //   }
 // }
+
+// 첫 시작하는 숫자를 찾아내 배열의 총합이 total과 같을때까지 배열의 요소를 증가 시킴
 function solution(num, total) {
   // var answer = [];
   let startNum = 0;
