@@ -32,4 +32,4 @@ function solution(N, stages) {
   return answer;
 }
 
-console.log(solution(4, [4, 4, 4, 4, 4]));
+console.log(solution(4, [5, 5, 5, 5, 5]));
