@@ -7,10 +7,7 @@ def solution(board, moves):
         idx = i - 1
         for j in board:
             if j[idx] != 0:
-                # if len(temp_list) > 0:
-                try:
-                    temp_list[-1]
-                except:
+                if not temp_list:
                     temp_list.append(j[idx])
                     j[idx] = 0
                     break
@@ -20,12 +17,22 @@ def solution(board, moves):
                         answer += 2
                     else:
                         temp_list.append(j[idx])
-                    j[idx] = 0
-                    break
-                # else:
+                j[idx] = 0
+                break
+                # try:
+                #     temp_list[-1]
+                # except:
                 #     temp_list.append(j[idx])
-                # j[idx] = 0
-                # break
+                #     j[idx] = 0
+                #     break
+                # else:
+                #     if temp_list[-1] == j[idx]:
+                #         temp_list.pop()
+                #         answer += 2
+                #     else:
+                #         temp_list.append(j[idx])
+                #     j[idx] = 0
+                #     break
                     
     return answer
 
