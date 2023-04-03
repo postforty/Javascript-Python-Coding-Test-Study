@@ -1,7 +1,7 @@
 function solution(lottos, win_nums) {
   var answer = [];
-  count = 0;
-  zeroCount = 0;
+  let count = 0;
+  let zeroCount = 0;
 
   for (let i of lottos) {
     if (win_nums.includes(i)) {
@@ -24,6 +24,7 @@ function solution(lottos, win_nums) {
       : value === 2
       ? 5
       : 6;
+
   answer = [level(count + zeroCount), level(count)];
   return answer;
 }
