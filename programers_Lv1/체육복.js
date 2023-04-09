@@ -22,16 +22,24 @@ function solution(n, lost, reserve) {
         1
       );
       answer++;
+
       continue;
-    }
-    if (sortedReserveRemove.indexOf(sortedLostRemove[i] + 1) > -1) {
+    } else if (sortedReserveRemove.indexOf(sortedLostRemove[i] + 1) > -1) {
       sortedReserveRemove.splice(
         sortedReserveRemove.indexOf(sortedLostRemove[i] + 1),
         1
       );
       answer++;
+      // console.log(answer);
     }
   }
 
   return answer;
 }
+
+console.log(solution(5, [2, 4], [1, 3, 5]));
+console.log(solution(5, [2, 4], [3]));
+console.log(solution(3, [3], [1]));
+console.log(solution(5, [4, 2], [3, 5]));
+console.log(solution(4, [2, 3], [3, 4]));
+console.log(solution(4, [3, 2], [3, 4, 2]));
