@@ -5,15 +5,16 @@ function solution(n, lost, reserve) {
   const sortedReserve = reserve.sort((a, b) => a - b);
 
   const sortedLostRemove = [...sortedLost];
-  const sortedReserveRemove = [...sortedReserve];
 
   sortedLost.forEach((value, idx) => {
     if (sortedReserve.indexOf(value) > -1) {
+      sortedReserve.splice(sortedReserve.indexOf(value), 1);
       sortedLostRemove.splice(idx, 1);
-      sortedReserveRemove.splice(sortedReserve.indexOf(value), 1);
       answer++;
     }
   });
+
+  const sortedReserveRemove = [...sortedReserve];
 
   for (let i = 0; i < sortedLostRemove.length; i++) {
     if (sortedReserveRemove.indexOf(sortedLostRemove[i] - 1) > -1) {
