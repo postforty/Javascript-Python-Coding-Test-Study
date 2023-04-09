@@ -2,24 +2,24 @@ def solution(n, lost, reserve):
     answer = 0
 
     count = n - len(lost)
-    solted_lost = sorted(lost)
-    solted_lost_remove = sorted(lost) # 순회 중인 리스트의 요소를 제거하면 안되기 때문에 새로운 리스트 생성
-    solted_reserve = sorted(reserve)
+    sorted_lost = sorted(lost)
+    sorted_lost_remove = sorted(lost) # 순회 중인 리스트의 요소를 제거하면 안되기 때문에 새로운 리스트 생성
+    sorted_reserve = sorted(reserve)
 
     # 여벌을 가지고 있는데 잃어 버린 경우에 대한 처리를 먼저해야 함.
-    for i in solted_lost:
-        if i in solted_reserve:
-            solted_lost_remove.remove(i)
-            solted_reserve.remove(i)
+    for i in sorted_lost:
+        if i in sorted_reserve:
+            sorted_lost_remove.remove(i)
+            sorted_reserve.remove(i)
             count += 1
     
-    for i in solted_lost_remove:
-        if i-1 in solted_reserve:
-            solted_reserve.remove(i-1)
+    for i in sorted_lost_remove:
+        if i-1 in sorted_reserve:
+            sorted_reserve.remove(i-1)
             count += 1
             continue
-        if i+1 in solted_reserve:
-            solted_reserve.remove(i+1)
+        if i+1 in sorted_reserve:
+            sorted_reserve.remove(i+1)
             count += 1
 
     answer = count
