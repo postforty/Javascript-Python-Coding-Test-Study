@@ -15,31 +15,28 @@ function solution(n, lost, reserve) {
     }
   });
 
-  for (let i = 0; i < sortedLostRemove.length; i++) {
-    if (sortedReserveRemove.indexOf(sortedLostRemove[i] - 1) > -1) {
-      sortedReserveRemove.splice(
-        sortedReserveRemove.indexOf(sortedLostRemove[i] - 1),
-        1
-      );
-      answer++;
+  const sortedLostRemoveR = [...sortedLost];
 
-      continue;
-    } else if (sortedReserveRemove.indexOf(sortedLostRemove[i] + 1) > -1) {
-      sortedReserveRemove.splice(
-        sortedReserveRemove.indexOf(sortedLostRemove[i] + 1),
-        1
-      );
-      answer++;
-      // console.log(answer);
-    }
-  }
+  sortedLostRemove.forEach((value) => {
+    sortedReserveRemove.indexOf(value - 1) !== -1 && answer++;
+    sortedReserveRemove.indexOf(value - 1) !== -1 &&
+      sortedReserveRemove.splice(sortedLostRemoveR.indexOf(value), 1);
+    sortedReserveRemove.indexOf(value - 1) !== -1 &&
+      sortedReserveRemove.splice(sortedReserveRemove.indexOf(value - 1), 1);
+  });
+
+  sortedLostRemoveR.forEach((value) => {
+    sortedReserveRemove.indexOf(value + 1) !== -1 && answer++;
+    sortedReserveRemove.indexOf(value + 1) !== -1 &&
+      sortedReserveRemove.splice(sortedReserveRemove.indexOf(value + 1), 1);
+  });
 
   return answer;
 }
 
 console.log(solution(5, [2, 4], [1, 3, 5]));
-console.log(solution(5, [2, 4], [3]));
-console.log(solution(3, [3], [1]));
-console.log(solution(5, [4, 2], [3, 5]));
-console.log(solution(4, [2, 3], [3, 4]));
-console.log(solution(4, [3, 2], [3, 4, 2]));
+// console.log(solution(5, [2, 4], [3]));
+// console.log(solution(3, [3], [1]));
+// console.log(solution(5, [4, 2], [3, 5]));
+// console.log(solution(4, [2, 3], [3, 4]));
+// console.log(solution(4, [3, 2], [3, 4, 2]));
