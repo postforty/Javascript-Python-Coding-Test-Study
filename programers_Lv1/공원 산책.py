@@ -1,60 +1,43 @@
 def solution(park, routes):
-    answer = []
-    x_point = []
-    y_len = len(park)
-    x_len = len(park[0])
-
-    for i, v in enumerate(park):
-        for j, s in enumerate(v):
-            if s == 'S':
-                answer = [i, j]
-            if s == 'X':
-                x_point.append([i, j])
+    start = []
+    x = []
+    w_s = len(park[0])
+    h_s = len(park)
     
-    for i in routes:
-        a, b = i.split()
-        b = int(b)
-        # 가로 - 우
-        if a == "E" and answer[1] + b < x_len:
-            temp = answer[:]
-            rollback = False
-            for j in range(b):
-                temp[1] += 1
-                if temp in x_point:
-                    rollback = True
-            if rollback == False:
-                answer = temp
-        # 가로 - 좌
-        if a == "W" and answer[1] - b >= 0:
-            temp = answer[:]
-            rollback = False
-            for j in range(b):
+    for h, s in enumerate(park):
+        for w, v in enumerate(s):
+            if v == "S":
+                start = [h, w]
+            if v == "X":
+                x.append([h, w])
+    
+    def func(lst):
+        temp = start[:]
+        lst[1] = int(lst[1])
+        for _ in range(lst[1]):
+            if lst[0] == 'W':
                 temp[1] -= 1
-                if temp in x_point:
-                    rollback = True
-            if rollback == False:
-                answer = temp
-        # 세로 - 상
-        if a == "N" and answer[0] - b >= 0:
-            temp = answer[:]
-            for j in range(b):
+            if lst[0] == 'E':
+                temp[1] += 1
+            if lst[0] == 'N':
                 temp[0] -= 1
-                if temp in x_point:
-                    rollback = True
-            if rollback == False:
-                answer = temp
-        # 세로 - 하
-        if a == "S" and answer[0] + b < y_len:
-            temp = answer[:]
-            rollback = False
-            for j in range(b):
+            if lst[0] == 'S':
                 temp[0] += 1
-                if temp in x_point:
-                    rollback = True
-            if rollback == False:
-                answer = temp
-    
-    return answer
+            if temp[0] < 0 or temp[0] >= h_s:
+                return
+            if temp[1] < 0 or temp[1] >= w_s:
+                return
+            if temp in x:
+                return
+        return temp
+
+    for i in routes:
+        r = i.split()
+        coord = func(r)
+        if coord:
+            start = coord
+
+    return start
 
 # W - 좌, E - 우, N - 상, S - 하 
 print(solution(["SOO","OOO","OOO"], ["E 2","S 2","W 1"])) # [2,1]

@@ -46,6 +46,7 @@ def solution(park, routes):
     return answer
 
 # W - 좌, E - 우, N - 상, S - 하 
-print(solution(["SOO","OOO","OOO"], ["E 2","S 2","W 1"])) # [2,1]
-print(solution(["SOO","OXX","OOO"], ["E 2","S 2","W 1"])) # [0,1]
-print(solution(["OSO","OOO","OXO","OOO"], ["E 2","S 3","W 1"])) # [0,0]
+# print(solution(["SOO","OOO","OOO"], ["E 2","S 2","W 1"])) # [2,1]
+# print(solution(["SOO","OXX","OOO"], ["E 2","S 2","W 1"])) # [0,1]
+# print(solution(["OSO","OOO","OXO","OOO"], ["E 2","S 3","W 1"])) # [0,0]
+print(solution(["OO","OS","OO"], ["E 2","S 2","W 1"])) # [2,1]

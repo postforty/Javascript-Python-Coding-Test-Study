@@ -1,2 +1,2 @@
-
-# print(solution(["SOO","OXX","OOO"], ["E 2","S 2","W 1"])) # [0,1]
+"E 2","S 2","W 1"])) # [2,1]
+print(solution(["SOO","OXX","OOO"], ["E 
