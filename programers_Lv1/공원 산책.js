@@ -36,14 +36,18 @@ function solution(park, routes) {
           temp[0]++;
           break;
       }
-      if (temp[0] < 0 || temp[0] >= hSize) {
+      if (temp[0] < 0 || temp[0] >= hSize || temp[1] < 0 || temp[1] >= wSize) {
         return;
       }
-      if (temp[1] < 0 || temp[1] >= wSize) {
-        return;
-      }
-      // 이중 배열 요소 비교를 위해 안쪽 배열을 문자열로 변경하여 비교함
-      if (x.map((arr) => JSON.stringify(arr)).includes(JSON.stringify(temp))) {
+      // 이중 배열 요소 비교를 위해 안쪽 배열을 문자열로 변경하여 비교함'
+      // console.log("x::", x);
+      // console.log("temp::", temp);
+      // if (x.map((arr) => JSON.stringify(arr)).includes(JSON.stringify(temp))) {
+      if (
+        x
+          .map((arr) => JSON.stringify(arr))
+          .some((x) => x === JSON.stringify(temp))
+      ) {
         return;
       }
     }
