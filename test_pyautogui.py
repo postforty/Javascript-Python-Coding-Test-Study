@@ -6,10 +6,11 @@ import pyperclip
 
 # 1차 - 좌표 확인
 # while True:
-#     print(pyautogui.position())
+#     xy = pyautogui.position()
+#     print(xy)
 #     time.sleep(0.1)
 
 time.sleep(3)
-pyautogui.moveTo(1259,542)
+# pyautogui.moveTo(1260,614)
 while True:
     pyautogui.doubleClick()

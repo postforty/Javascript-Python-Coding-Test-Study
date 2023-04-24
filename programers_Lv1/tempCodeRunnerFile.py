@@ -1,2 +1,7 @@
-"E 2","S 2","W 1"])) # [2,1]
-print(solution(["SOO","OXX","OOO"], ["E 
+) == 4:
+        #     for j in idx:
+        #         del lst[j]
+        #     temp = []
+        #     idx = []
+        #     next = 0
+        #     answer += 1
