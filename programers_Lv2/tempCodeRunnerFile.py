@@ -1,3 +1,2 @@
-
-print(solution(8, 1))
-print(solution(24, 24))
+v in enumerate(words):
+    #     print(i, v)
