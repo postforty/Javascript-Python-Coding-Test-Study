@@ -1,21 +1,50 @@
-const arr = [
-  [128.63362792028676, 35.2215073061068],
-  [128.63362792028676, 35.2215073061068],
-];
+let n = 2;
+let arr = ["hello", "one", "even", "never", "now", "world", "draw"];
 
-const newArr = [];
-const obj = {};
+// forEach를 이용
+// const newArr = new Array(arr.length);
+// const result = [];
+// newArr.fill(1);
+// newArr.forEach((_, idx) => {
+//   if ((idx + 1) % n === 0) {
+//     result.push(n);
+//   } else {
+//     result.push((idx + 1) % n);
+//   }
+// });
 
-for (const el of arr) {
-  obj["lat"] = el[1];
-  obj["lng"] = el[0];
-  newArr.push(obj);
-}
+// const newArr = new Array(arr.length);
+// const result = [];
+// newArr.fill(1);
+// let num = 1;
+// newArr.forEach((_, idx) => {
+//   if ((idx + 1) % n === 0) {
+//     result.push(num);
+//     num++;
+//   } else {
+//     result.push(num);
+//   }
+// });
 
-console.log(newArr);
+// let num = 1;
+// const result = arr.map((el, idx) => {
+//   if ((idx + 1) % n === 0) {
+//     return n;
+//   } else {
+//     return (idx + 1) % n;
+//   }
+// });
+// [ 1, 2, 1, 2, 1, 2, 1]
 
-// console.log(arr.map((el) => JSON.parse(`{"lat": ${el[1]}, "lng": ${el[0]}}`)));
-// console.log(
-//   tempArr[0].map(el => JSON.parse(`{"lat": ${el[1]}, "lng": ${el[0]}}`)),
-//   // tempArr[0].map(el => `{"lat": ${el[1]}, "lng": ${el[0]}}`),
-// );
+let num = 1;
+const result = arr.map((el, idx) => {
+  if ((idx + 1) % n === 0) {
+    let temp = num;
+    num++;
+    return temp;
+  } else {
+    return num;
+  }
+});
+
+console.log(result);
