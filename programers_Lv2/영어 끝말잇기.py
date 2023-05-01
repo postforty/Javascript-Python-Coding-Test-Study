@@ -1,22 +1,44 @@
 def solution(n, words):
     answer = []
-    lst_1 = words[:-1]
+    lst_1 = words[:]
     lst_2 = words[1:]
+
+    lst_player_num = []
+    lst_round = []
+    cnt = 1
+    for i in range(1, len(words) + 1):
+
+        if i % n == 0:
+            lst_player_num.append(n)
+            lst_round.append(cnt)
+            cnt += 1
+        else:
+            lst_player_num.append(i % n)
+            lst_round.append(cnt)
+
 
     print(lst_1)
     print(lst_2)
-    cnt = 1
-    for i, v in enumerate(lst_1):
-        if v[-1] != lst_2[i][0] or lst_2[i] in lst_1[:i]:
-            player = n if (i + 1) % n == 0 else (i + 1) % n
-            break
-        else:
-            if ((i+1) % n == 0):
-                cnt += 1
+    print(lst_player_num)
+    print(lst_round)
 
-    print(cnt, player)
+    for i, v in enumerate(lst_1):
+        try:
+            if v[-1] != lst_2[i][0]:
+                answer = [lst_player_num[i+1], lst_round[i+1]]
+                break
+            if lst_2[i] in lst_1[:i+1]:
+                print("!!!",lst_1[:i+1])
+                answer = [lst_player_num[i+1], lst_round[i+1]]
+                break
+        except:
+            # [player, round]
+            answer = [0, 0]
+            break
 
     return answer
 
-print(solution(3, ["tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"]))
-print(solution(2, ["hello", "one", "even", "never", "now", "world", "draw"]))
+print(solution(3, ['aa', 'ab', 'bc', 'ca', 'aaa', 'abb', 'bc', 'ca', 'aa'])) # [1, 3]
+print(solution(3, ["tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"])) # [3, 3]
+print(solution(5, ["hello", "observe", "effect", "take", "either", "recognize", "encourage", "ensure", "establish", "hang", "gather", "refer", "reference", "estimate", "executive"])) # [0, 0]
+print(solution(2, ["hello", "one", "even", "never", "now", "world", "draw"])) # [1, 3]
