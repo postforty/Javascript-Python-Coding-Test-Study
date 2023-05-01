@@ -7,11 +7,10 @@ def solution(n, words):
     lst_round = []
     round = 1
     for i in range(1, len(words) + 1):
-
         if i % n == 0:
             lst_player_num.append(n)
             lst_round.append(round)
-            cnt += 1
+            round += 1
         else:
             lst_player_num.append(i % n)
             lst_round.append(round)
@@ -28,7 +27,6 @@ def solution(n, words):
                 answer = [lst_player_num[i+1], lst_round[i+1]]
                 break
             if lst_2[i] in lst_1[:i+1]:
-                print("!!!",lst_1[:i+1])
                 answer = [lst_player_num[i+1], lst_round[i+1]]
                 break
         except:
