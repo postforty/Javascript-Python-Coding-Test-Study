@@ -18,11 +18,6 @@ function solution(n, words) {
     }
   }
 
-  console.log(arr1);
-  console.log(arr2);
-  console.log(playersArr);
-  console.log(roundArr);
-
   for (let i = 0; i < arr1.length; i++) {
     let w1 = arr1[i];
     let w2 = arr2[i];

@@ -46,5 +46,6 @@ const result = arr.map((el, idx) => {
     return num;
   }
 });
+// [1, 1, 2, 2, 3, 3, 4]
 
 console.log(result);
