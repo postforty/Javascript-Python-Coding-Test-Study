@@ -1,6 +1,5 @@
 import re
 
-
 def solution(new_id):
     try:
         answer = new_id.lower()
@@ -23,4 +22,4 @@ print(solution("z-+.^."))
 print(solution("=.="))
 print(solution("123_.def"))
 print(solution("abcdefghijklmn.p"))
-# print(solution("aa"))
+print(solution("aa"))

@@ -50,10 +50,10 @@ let arr = ["hello", "one", "even", "never", "now", "world", "draw"];
 
 // console.log(result);
 
-// for (const [i, v] of ["a", "b", "c"].entries()) {
-//   console.log(typeof i, typeof v);
-//   console.log(i, v);
-// }
+for (const [i, v] of ["a", "b", "c"].entries()) {
+  console.log(typeof i, typeof v);
+  console.log(i, v);
+}
 
 // const object = { a: 1, b: 2, c: 3 };
 
@@ -65,3 +65,4 @@ let arr = ["hello", "one", "even", "never", "now", "world", "draw"];
   console.log(typeof i, typeof v);
   console.log(i, v);
 });
+
