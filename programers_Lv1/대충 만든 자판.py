@@ -1,16 +1,12 @@
 def solution(keymap, targets):
-    t0, t1 = targets
-    k0, k1 = keymap
+    def func(k, t):
+        result = []
+        for i in t:
+            result.append(k.find(i) + 1 if k.find(i) >= 0 else k.find(i))
+        return result
 
-    def func(target):
-        cnt = 0
-        for i in target:
-            temp = [k0.find(i) + 1, k1.find(i) + 1]
-            cnt += max(temp) if 0 in temp else min(temp)
-        return cnt
-
-    return [func(t0), func(t1)]
+    return func(keymap[0], targets[0])
 
 
-print(solution(["ABACD", "BCEFD"], ["ABCD", "AABB"]))  # [9, 4]
-print(solution(["AA"], ["B"]))  # [9, 4]
+# print(solution(["ABACD", "BCEFD"], ["ABCD", "AABB"]))  # [9, 4]
+print(solution(["AA"], ["B"]))  # [-1]
