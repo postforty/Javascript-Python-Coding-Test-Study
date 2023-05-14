@@ -5,8 +5,15 @@ def solution(keymap, targets):
             result.append(k.find(i) + 1 if k.find(i) >= 0 else k.find(i))
         return result
 
-    return func(keymap[0], targets[0])
+    t_lst = []
+    for t in targets:
+        k_lst = []
+        for k in keymap:
+            k_lst.append(func(k, t))
+        print(k_lst)
+
+    return
 
 
-# print(solution(["ABACD", "BCEFD"], ["ABCD", "AABB"]))  # [9, 4]
-print(solution(["AA"], ["B"]))  # [-1]
+print(solution(["ABACD", "BCEFD"], ["ABCD", "AABB"]))  # [9, 4]
+# print(solution(["AA"], ["B"]))  # [-1]
