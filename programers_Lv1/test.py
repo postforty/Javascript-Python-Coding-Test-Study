@@ -1,19 +1,29 @@
-def solution(ingredient):
-    answer = 0
+def solution(keymap, targets):
+    def func(k, t):
+        result = []
+        for i in t:
+            result.append(k.find(i) + 1 if k.find(i) >= 0 else k.find(i))
+        return result
 
-    i = 0
-    # 시간 초과 예방을 위해 순회를 최소화해야 함
-    while i < len(ingredient)-3:
-        if ingredient[i:i+4] == [1, 2, 3, 1]:
-            del ingredient[i:i+4]
-            answer += 1
-            i -= 3
-        else:
-            i += 1
-    return answer
-            
-print(solution([2, 1, 1, 2, 3, 1, 2, 3, 1])) # 2
-print(solution([1, 3, 2, 1, 2, 1, 3, 1, 2])) # 0
-print(solution([1, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 1])) # 2
-print(solution([1,1,2,3,1,2,3,1,2,3,1,2,3,1])) # 3
-print(solution([1,1,2,3,1,1])) # 1
+    t_lst = []
+    for t in targets:
+        k_lst = []
+        for k in keymap:
+            k_lst.append(func(k, t))
+        rst = 0
+        for x in zip(*k_lst):
+            # keymap으로 targets을 구현할 수 없는 경우
+            if (-1 in x and len(set(x)) == 1):
+                rst = -1
+                break
+            # keymap으로 targets을 구현할 수 있는 경우 -1을 제외
+            else:
+                rst += min(filter(lambda n: n != -1, x))
+        t_lst.append(rst)
+
+    return t_lst
+
+
+print(solution(["ABACD", "BCEFD"], ["ABCD", "AABB"]))  # [9, 4]
+print(solution(["AA"], ["B"]))  # [-1]
+print(solution(["BC"], ["AC","BC"]))  # [-1,3]
