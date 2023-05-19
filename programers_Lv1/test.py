@@ -1,29 +1,24 @@
-def solution(keymap, targets):
-    def func(k, t):
-        result = []
-        for i in t:
-            result.append(k.find(i) + 1 if k.find(i) >= 0 else k.find(i))
-        return result
+def solution(n):
+    ans = 1
+    current = 1
+    
+    limit = n
 
-    t_lst = []
-    for t in targets:
-        k_lst = []
-        for k in keymap:
-            k_lst.append(func(k, t))
-        rst = 0
-        for x in zip(*k_lst):
-            # keymap으로 targets을 구현할 수 없는 경우
-            if (-1 in x and len(set(x)) == 1):
-                rst = -1
-                break
-            # keymap으로 targets을 구현할 수 있는 경우 -1을 제외
+    while current < n:
+        temp = current
+        if temp < limit:
+            temp += current
+            if temp > limit:
+                temp = current
+                temp += 1
+                ans += 1
+                current = temp
+                print(temp)
+
             else:
-                rst += min(filter(lambda n: n != -1, x))
-        t_lst.append(rst)
+                current = temp
+    return ans
 
-    return t_lst
-
-
-print(solution(["ABACD", "BCEFD"], ["ABCD", "AABB"]))  # [9, 4]
-print(solution(["AA"], ["B"]))  # [-1]
-print(solution(["BC"], ["AC","BC"]))  # [-1,3]
+# print(solution(5)) # 2
+print(solution(6)) # 2
+# print(solution(5000)) # 5
