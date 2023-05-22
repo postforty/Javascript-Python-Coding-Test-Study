@@ -16,23 +16,33 @@
 #     return len(result_list) % 1234567
 
 
+# def solution(n):
+#     if n == 1:
+#         return n
+
+#     lst = [0] * (n + 1)
+
+#     lst[1] = 1
+#     lst[2] = 2
+
+#     for i in range(3, n+1):
+#         lst[i] = (lst[i-2] + lst[i-1]) % 1234567
+
+#     return lst[-1]
+
 def solution(n):
-    temp = dict()
-    temp[0] = 1
-    temp[1] = 1
-    print(temp)
-    dp = [0] * (n + 1)
-    dp[1] = 1
     if n == 1:
-        return 1
-    dp[2] = 2
+        return n
 
-    for i in range(3, n + 1):
-        dp[i] = (dp[i - 2] + dp[i - 1]) % 1234567
-        print(dp)
+    a, b = 1, 2
 
-    return dp[n]
+    for _ in range(n-2):
+        a, b = b, (a+b) % 1234567
 
+    return b
 
+print(solution(6))  # 13
+print(solution(5))  # 8
 print(solution(4))  # 5
-# print(solution(3))  # 3
+print(solution(3))  # 3
+print(solution(2))  # 2
