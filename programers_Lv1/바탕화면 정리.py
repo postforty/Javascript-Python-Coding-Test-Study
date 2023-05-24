@@ -18,4 +18,4 @@ def solution(wallpaper):
 
 # print(solution([".#...", "..#..", "...#."])) # [0, 1, 3, 4]
 # print(solution(["..", "#."])) # [1, 0, 2, 1]
-print(solution(["...#"])) # [1, 0, 2, 1]
+print(solution(["...#"])) # [0, 3, 1, 4]

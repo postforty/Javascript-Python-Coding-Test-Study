@@ -5,7 +5,6 @@ function solution(wallpaper) {
     lux: wallpaper.length - 1,
     luy: wallpaper[0].length - 1,
   };
-  console.log(lux, luy);
   let rdx = (rdy = 0);
 
   wallpaper.forEach((v, x) =>
