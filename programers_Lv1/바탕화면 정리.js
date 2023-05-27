@@ -26,12 +26,12 @@ function solution(wallpaper) {
     })
   );
 
-  answer.push(lux);
-  answer.push(luy);
-  answer.push(rdx + 1);
-  answer.push(rdy + 1);
+  // answer.push(lux);
+  // answer.push(luy);
+  // answer.push(rdx + 1);
+  // answer.push(rdy + 1);
 
-  return answer;
+  return [lux, luy, rdx + 1, rdy + 1];
 }
 
 // console.log(solution([".#...", "..#..", "...#."])); // [0, 1, 3, 4]
