@@ -1,7 +1,3 @@
-) == 4:
-        #     for j in idx:
-        #         del lst[j]
-        #     temp = []
-        #     idx = []
-        #     next = 0
-        #     answer += 1
+
+        r_m = 0
+        r_d = 0
