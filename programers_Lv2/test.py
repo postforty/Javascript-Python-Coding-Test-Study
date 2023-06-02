@@ -1,5 +1,6 @@
-def solution(elements):
-    answer = 0
+def solution(n, left, right):
+    answer = []
     return answer
 
-print(solution([7,9,1,1,4])) # 18
+print(solution(3, 2, 5)) # [3,2,2,3]
+print(solution(4, 7, 14)) # [4,3,3,3,4,4,4,4]
