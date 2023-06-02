@@ -1,5 +1,3 @@
-import itertools
-
 def solution(elements):
     answer = set(elements)
 
