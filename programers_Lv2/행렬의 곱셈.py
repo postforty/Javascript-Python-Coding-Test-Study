@@ -1,15 +1,12 @@
 def solution(arr1, arr2):
     answer = []
 
-    # new_arr2 = []
-    # for i in range(len(arr2[0])):
-    #     temp = []
-    #     for v in arr2:
-    #         temp.append(v[i])
-    #     new_arr2.append(temp)
-    new_arr2 = arr2.reduce((acc, curr) => {
-        return 0
-    })
+    new_arr2 = []
+    for i in range(len(arr2[0])):
+        temp = []
+        for v in arr2:
+            temp.append(v[i])
+        new_arr2.append(temp)
 
     def func(arr1, arr2):
         rst = 0
