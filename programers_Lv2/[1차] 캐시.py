@@ -16,9 +16,22 @@ def solution(cacheSize, cities):
         
     return answer
 
-print(solution(3, ["Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"]))	# 50
-print(solution(2, ["Jeju", "Pangyo", "NewYork", "newyork"])) # 16
-print(solution(5, ["leo", "leo", "leo"])) # 7
-print(solution(3, ["a", "b", "c", "a"])) # 16
-print(solution(3, ["a", "b", "c", "a", "b"])) # 17
-print(solution(3, ["a", "b", "c", "a", "b", "d", "a"])) # 23
+# print(solution(3, ["Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"]))	# 50
+# print(solution(2, ["Jeju", "Pangyo", "NewYork", "newyork"])) # 16
+# print(solution(5, ["leo", "leo", "leo"])) # 7
+# print(solution(3, ["a", "b", "c", "a"])) # 16
+# print(solution(3, ["a", "b", "c", "a", "b"])) # 17
+# print(solution(3, ["a", "b", "c", "a", "b", "d", "a"])) # 23
+print(
+  solution(3, [
+    "Jeju",
+    "Pangyo",
+    "Seoul",
+    "Jeju",
+    "Pangyo",
+    "Seoul",
+    "Jeju",
+    "Pangyo",
+    "Seoul",
+  ])
+) # 21
