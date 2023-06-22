@@ -8,6 +8,7 @@ def solution(numbers, hand):
     cur_l = '*'
     cur_r = '#'
 
+    # 거리 계산 함수 정의
     def calc_distance(num, cur, m, lr):
         num_idx = m.index(num)
         if cur in lr:
