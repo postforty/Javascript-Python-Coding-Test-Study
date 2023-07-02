@@ -7,7 +7,7 @@ def solution(numbers, target):
         sublists = []
 
         def backtrack(start, curr):
-            sublists.append(tuple(curr))
+            sublists.append(list(curr))
 
             for i in range(start, len(arr)):
                 curr.append(arr[i])
@@ -27,4 +27,4 @@ def solution(numbers, target):
 
 
 print(solution([1, 1, 1, 1, 1], 3))  # 5
-print(solution([4, 1, 2, 1], 4))  # 2
+# print(solution([4, 1, 2, 1], 4))  # 2
