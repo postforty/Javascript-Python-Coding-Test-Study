@@ -1,3 +1,4 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/17687?language=python3
 def solution(n, t, m, p):
     num_list = [
         "0",
@@ -20,6 +21,7 @@ def solution(n, t, m, p):
 
     new_num_list = num_list[:n]
 
+    pre = ""
     result = ""
     count = 0
     while count < t:
