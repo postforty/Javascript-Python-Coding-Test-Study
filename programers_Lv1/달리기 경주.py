@@ -1,6 +1,6 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/178871
 # 1차시도에서 리스트 슬라이싱 방식으로 풀이 → 시간초과 발생
-# 2차시도에서 딕셔너리와 스와핑 이용하여 풀이 → 통과
+# 2차시도에서 딕셔너리와 스왑을 이용하여 풀이 → 통과
 def solution(players, callings):
     called = {v: i for i, v in enumerate(players)}
     # for i, v in enumerate(players):
