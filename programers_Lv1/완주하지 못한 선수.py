@@ -39,21 +39,37 @@
 #         except:
 #             return key
 
-# 리팩토링
+
+# 리팩토링1
+# def solution(participant, completion):
+#     p_obj = {}
+#     c_obj = {}
+
+#     for x in participant:
+#         p_obj[x] = 1 if x not in p_obj else p_obj[x] + 1
+
+#     for x in completion:
+#         c_obj[x] = 1 if x not in c_obj else c_obj[x] + 1
+
+#     for key in p_obj:
+#         if key not in c_obj or p_obj[key] != c_obj[key]:
+#             return key
+
+
+# 리팩토링2
 def solution(participant, completion):
-    p_obj = {}
-    c_obj = {}
+    participant.sort()
+    completion.sort()
 
-    for x in participant:
-        p_obj[x] = 1 if x not in p_obj else p_obj[x] + 1
-
-    for x in completion:
-        c_obj[x] = 1 if x not in c_obj else c_obj[x] + 1
-
-    for key in p_obj:
-        if key not in c_obj or p_obj[key] != c_obj[key]:
-            return key
+    for i, v in enumerate(participant):
+        try:
+            if v != completion[i]:
+                return v
+        except:
+            return v
 
 
 # print(solution(["leo", "kiki", "eden"], ["eden", "kiki"])) # "leo"
-print(solution(["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"])) # "mislav"
+print(
+    solution(["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"])
+)  # "mislav"
