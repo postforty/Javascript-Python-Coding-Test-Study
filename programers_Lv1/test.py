@@ -1,24 +1,16 @@
-def solution(s):
-    answer = []
-    count = 1
-    char = s[0]
-    str_result = char
-    for i, v in enumerate(s[1:]):
-        if count != 0:
-            if char == v:
-                count += 1
-            else:
-                count -= 1
-                char = v
-            str_result += v
-        if count == 0:
-            answer.append(str_result)
-            count = 1
-            str_result = v
-        print(count)
+# https://school.programmers.co.kr/learn/courses/30/lessons/136798?language=python3
+def solution(number, limit, power):
+    answer = 0
 
+    for n in range(1, number+1):
+        count = 0
+        for m in range(1, n+1):
+            count += 1 if n % m == 0 else 0
+            if count > limit:
+                count = power
+                break
+        answer += count
+    
     return answer
 
-
-print(solution("aaabbaccccabba"))  # 3
-# print(solution("ab"))  # 3
+print(solution(10, 3, 2))  # 21
