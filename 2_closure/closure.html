@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="help">Helpful notes will appear here</p>
+    <p>E-mail: <input type="text" id="email" name="email"></p>
+    <p>Name: <input type="text" id="name" name="name"></p>
+    <p>Age: <input type="text" id="age" name="age"></p>
+    <script>
+        // 참고:  https://jake-seo-dev.tistory.com/182
+
+        function showHelp(help) {
+            document.getElementById('help').innerHTML = help;
+        }
+
+        function setupHelp() {
+            var helpText = [
+                { 'id': 'email', 'help': 'Your e-mail address' },
+                { 'id': 'name', 'help': 'Your full name' },
+                { 'id': 'age', 'help': 'Your age (you must be over 16)' }
+            ];
+
+            // !!! 클로저로 인해 정상 작동하지 않는 코드
+            for (var i = 0; i < helpText.length; i++) {
+                var item = helpText[i];
+                document.getElementById(item.id).onfocus = function () {
+                    showHelp(item.help);
+                }; // 익명 함수 자체가 할당 되고 있음
+            }
+
+            // 1. 즉시 실행 함수
+            // for (var i = 0; i < helpText.length; i++) {
+            //     var item = helpText[i];
+            //     document.getElementById(item.id).onfocus = (
+            //         function (txt) {
+            //             return function () {
+            //                 return showHelp(txt);
+            //             }
+            //         })(item.help) // 즉시 실행 함수로 "리턴 값 할당"
+            // }
+
+            // 2. 즉시 실행 함수(화살표 함수)
+            // for (var i = 0; i < helpText.length; i++) {
+            //     var item = helpText[i];
+            //     document.getElementById(item.id).onfocus = ((txt) => () => {
+            //         showHelp(txt);
+            //     })(item.help); // 즉시 실행 함수로 "리턴 값 할당"
+            // }
+
+            // 3. result 함수 호출
+            // for (var i = 0; i < helpText.length; i++) {
+            //     var item = helpText[i];
+            //     document.getElementById(item.id).onfocus = result(item.help) // result함수 리턴 값을 할당
+            // }
+
+            // function result(txt) {
+            //     return function () {
+            //         return showHelp(txt);
+            //     }
+            // }
+
+        }
+
+        setupHelp();
+    </script>
+</body>
+
+</html>
