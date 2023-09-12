@@ -7,6 +7,7 @@ function solution(food) {
     }, 0)
     .slice(1);
   console.log(answer);
+  // 문자열 뒤집기
   return answer + "0" + answer.split("").reverse().join("");
 }
 
