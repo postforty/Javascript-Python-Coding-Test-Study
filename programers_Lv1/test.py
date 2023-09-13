@@ -4,6 +4,12 @@ def solution(babbling):
 
     str = ["aya", "ye", "woo", "ma"]
 
+    check = ""
+
+    for i in str:
+        for j, v in enumerate(i):
+            babbling[0]
+
     return answer
 
 
