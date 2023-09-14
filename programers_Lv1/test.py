@@ -2,15 +2,29 @@
 def solution(babbling):
     answer = 0
 
-    str = ["aya", "ye", "woo", "ma"]
+    str_dict = {'a': "aya", 'y': "ye", 'w': "woo", 'm': "ma"}
 
-    check = ""
+    str = babbling[3]
 
-    for i in str:
-        for j, v in enumerate(i):
-            babbling[0]
+    while True:
+        try:
+            i = str[0]
 
-    return answer
+            if i in str_dict:
+                if str[:len(str_dict[i])] == str_dict[i]:
+                    str = str[len(str_dict[i]):]
+                    continue
+                else:
+                    break
+        except:
+            answer += 1
+            break
+
+
+
+    print(answer)
+
+    return
 
 
 # print(solution(["aya", "yee", "u", "maa"]))  # 1
