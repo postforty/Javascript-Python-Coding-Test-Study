@@ -10,11 +10,6 @@ function outer() {
 const a = outer();
 const b = outer();
 console.log("a: ", a(1));
+console.log("b: ", b(10));
 console.log("a: ", a(1));
-console.log("a: ", a(1));
-console.log("a: ", a(1));
-console.log("a: ", a(1));
-console.log("b: ", b(1));
-console.log("b: ", b(1));
-console.log("a: ", a(1));
-console.log("a: ", a(1));
+console.log("b: ", b(10));
