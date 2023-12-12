@@ -2,8 +2,6 @@
 function solution(s) {
   alphaLower = [..."abcdefghijklmnopqrstuvwxyz"];
 
-  console.log(alphaLower);
-
   const sArr = [...s];
 
   const first = [];
