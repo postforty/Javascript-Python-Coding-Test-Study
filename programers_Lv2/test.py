@@ -2,6 +2,7 @@
 
 import itertools
 
+# 시간 초과
 def solution(numbers):
     answer = ''
     
@@ -13,14 +14,16 @@ def solution(numbers):
         else:
             dict[str_n[0]].append(str_n)
 
-    for n in dict.keys():
+    desc_num = sorted(dict.keys(), reverse=True)
+
+    for n in desc_num:
         max = 0
         for s in itertools.permutations(dict[n], len(dict[n])):
             num = int(''.join(s))
             if num > max:
                 max = num
-        print(max)
+        answer += str(max)
 
-    return dict
+    return answer
 
 print(solution([3, 30, 34, 5, 9])) # "9534330"
