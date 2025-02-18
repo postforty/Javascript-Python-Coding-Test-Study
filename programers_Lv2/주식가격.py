@@ -21,14 +21,14 @@ def solution(prices):
     stack = []
 
     for i, price in enumerate(prices):
-        while stack and prices[stack[-1]] > price:
+        while stack != [] and prices[stack[-1]] > price:
             j = stack.pop()
             answer[j] = i - j
         stack.append(i)
 
     while stack:
-        j = stack.pop()
-        answer[j] = len(prices) - 1 - j
+        i = stack.pop()
+        answer[i] = len(answer) - 1 - i
 
     return answer
 
