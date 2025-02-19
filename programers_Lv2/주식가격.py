@@ -21,7 +21,7 @@ def solution(prices):
     stack = []
 
     for i, price in enumerate(prices):
-        while stack != [] and prices[stack[-1]] > price:
+        while stack and prices[stack[-1]] > price: # if가 아닌 while을 사용해야함
             j = stack.pop()
             answer[j] = i - j
         stack.append(i)
@@ -32,5 +32,6 @@ def solution(prices):
 
     return answer
 
-print(solution([1,2,3,2,3]))
-print(solution([4,4,2]))
+# print(solution([1,2,3,2,3]))
+# print(solution([4,4,2]))
+print(solution([3, 2, 4, 1, 5])) # while 대신 if를 사용하면 안되는 테스트 케이스, 3번 인덱스의 1을 스택에 있는 인덱스 2와 인덱스 1을 모두 비교해야함. if문을 사용하면 인덱스 2만 비교함
