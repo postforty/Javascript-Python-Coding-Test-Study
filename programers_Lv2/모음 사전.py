@@ -15,7 +15,7 @@ import itertools
 #     for i in range(1, 6):
 #         for comb in itertools.product(vowels, repeat=i): # 첫번째 인자로 리스트
 #             words.append(''.join(comb))
-#     words.sort()
+#     words.sort() # ! 사전순이기 때문에 오름차순 정렬 반드시 실시
 #     return words.index(word) + 1
     
 # def solution(word):
