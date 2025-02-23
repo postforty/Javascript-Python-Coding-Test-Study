@@ -2,24 +2,24 @@
 # 땅따먹기
 
 # 1차 시도 실패
-def solution(land):
-    answer = 0
+# def solution(land):
+#     answer = 0
 
-    prev_max_index = None
+#     prev_max_index = None
 
-    for row in land:
-        max_value = 0
-        max_index = 0
-        for i, v in enumerate(row):
-            if prev_max_index == i:
-                continue
-            if max_value < v:
-                max_value = v
-                max_index = i
-        prev_max_index = max_index
-        answer += max_value
+#     for row in land:
+#         max_value = 0
+#         max_index = 0
+#         for i, v in enumerate(row):
+#             if prev_max_index == i:
+#                 continue
+#             if max_value < v:
+#                 max_value = v
+#                 max_index = i
+#         prev_max_index = max_index
+#         answer += max_value
 
-    return answer
+#     return answer
 
 # 2차 시도 실패
 # def solution(land):
@@ -35,6 +35,7 @@ def solution(land):
 #     return answer
 
 # 동적 계획법(Dynamic Programming)
+# DP : 메모리를 사용해서 중복 연산을 줄이고 중복 연산을 줄여서 수행 속도를 개선한다(기억하기 알고리즘, 기억하며 풀기).
 def solution(land):
     for i in range(1, len(land)):
         for j in range(4):
