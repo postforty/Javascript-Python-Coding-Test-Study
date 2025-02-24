@@ -75,6 +75,28 @@
 #     return -1 # 수정
 
 # DP 사용하여 해결
+# def solution(x, y, n):
+#     if x == y:
+#         return 0
+    
+#     dp = [float('inf')] * (y + 1)
+#     dp[x] = 0  # 시작점은 연산 0회
+    
+#     for i in range(x, y + 1):
+#         if dp[i] == float('inf'): # inf는 양의 무한대
+#             continue  # 도달 불가능한 숫자는 건너뜀
+
+#         # 가능한 연산 수행
+#         if i + n <= y:
+#             dp[i + n] = min(dp[i + n], dp[i] + 1)
+#         if i * 2 <= y: # 조건식 때문에 dp 리스트 범위를 벗어나는 일은 없음
+#             dp[i * 2] = min(dp[i * 2], dp[i] + 1)
+#         if i * 3 <= y:
+#             dp[i * 3] = min(dp[i * 3], dp[i] + 1)
+
+#     return dp[y] if dp[y] != float('inf') else -1
+
+# DP 사용하여 해결
 def solution(x, y, n):
     if x == y:
         return 0
@@ -94,7 +116,10 @@ def solution(x, y, n):
         if i * 3 <= y:
             dp[i * 3] = min(dp[i * 3], dp[i] + 1)
 
-    return dp[y] if dp[y] != float('inf') else -1
+        if i == y:
+            return dp[i]
+
+    return -1
 
 print(solution(10, 40, 5)) # 2
 print(solution(10, 40, 30)) # 1
