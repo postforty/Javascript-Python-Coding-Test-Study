@@ -41,16 +41,55 @@
 #     return answer
 
 
+# 성공
+# def solution(skill, skill_trees):
+#     answer = 0
+
+#     for skill_tree in skill_trees:
+#         temp = ""
+#         for ch in skill_tree:
+#             if ch in skill:
+#                 temp += ch
+
+#         if skill[:len(temp)] == temp:
+#             answer += 1
+
+#     return answer
+
+# 성공
+# def solution(skill, skill_trees):
+#     answer = 0
+
+#     for skill_tree in skill_trees:
+#         temp = ""
+#         for ch in skill_tree:
+#             if ch in skill:
+#                 temp += ch
+
+#         if skill.startswith(temp):
+#             answer += 1
+
+#     return answer
+
+# 성공
+# def solution(skill, skill_trees):
+#     def is_valid_skill_tree(skill, skill_tree):
+#         filtered_skills = [ch for ch in skill_tree if ch in skill]
+#         return skill.startswith(''.join(filtered_skills))
+
+#     return sum(is_valid_skill_tree(skill, skill_tree) for skill_tree in skill_trees)
+
 def solution(skill, skill_trees):
     answer = 0
 
     for skill_tree in skill_trees:
-        temp = ""
+        skill_list = list(skill)
+
         for ch in skill_tree:
             if ch in skill:
-                temp += ch
-        
-        if skill[:len(temp)] == temp:
+                if ch != skill_list.pop(0):
+                    break
+        else:
             answer += 1
 
     return answer
